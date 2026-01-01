@@ -51,6 +51,13 @@ class RCTRecord:
     classification_reason: str = ""
     classification_inputs_used: List[str] = field(default_factory=list)
     
+    # LLM Classification (populated when using LM Studio refinement)
+    llm_topic: Optional[str] = None
+    llm_reasoning: Optional[str] = None
+    llm_confidence: Optional[float] = None
+    final_topic: Optional[str] = None
+    topic_source: str = "Rules"  # "Rules", "LLM", or "Rules (LLM low confidence)"
+    
     # Quality tracking
     data_quality_notes: Optional[str] = None
     
